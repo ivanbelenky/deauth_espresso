@@ -1,6 +1,7 @@
-# deauth espresso machine
+# deauth espresso machine ☕
 
-```sh
+```
+$ sudo deauth_espresso.py --help
 usage: deauth_espresso.py [-h] [-c COUNT] [--inter INTER] [--attack-inter ATTACK_INTER] [-i IFACE] [-si SCAN_IFACE] [-v] bssid
 
 free the coffeshop wifi for yourself
