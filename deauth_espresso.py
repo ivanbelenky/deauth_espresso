@@ -48,7 +48,7 @@ if __name__ == "__main__":
         for d in devices: print(cstr("purple", f"{d['mac']} - {d['ip']}"))
         print('\n')
         for device in devices:
-            if device['mac'] in exclusions or device['ip'] in exclusions: continue
+            if device['mac'] in exclusions or device['ip'] in exclusions or device['mac'] == bssid: continue
             print(cstr("orange", "IP: ", b=True), cstr("blue", f"{device['ip']}  "), cstr("orange", "MAC: "), cstr("blue", f"{device['mac']}"))
             deauth(device['mac'], bssid, iface, inter, count, verbose)
         time.sleep(attack_inter)
