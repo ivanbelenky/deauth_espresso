@@ -45,6 +45,8 @@ if __name__ == "__main__":
     while True:
         devices = scan_local_network(iface)
         print(cstr("red", "Targets:", True))
+        for d in devices: print(cstr("purple", f"{d['mac']} - {d['ip']}"))
+        print('\n')
         for device in devices:
             print(cstr("orange", "IP: ", b=True), cstr("blue", f"{device['ip']}  "), cstr("orange", "MAC: "), cstr("blue", f"{device['mac']}"))
             deauth(device['mac'], bssid, iface, inter, count, verbose)
